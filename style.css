@@ -104,7 +104,7 @@ body.nav-open { overflow: hidden; }
 .section-white { background: #fff; }
 .section-lilac { background: var(--lilac); }
 
-.hero { position: relative; min-height: 760px; padding: 100px 0 120px; overflow: hidden; }
+.hero { position: relative; min-height: 760px; padding: 180px 0 120px; overflow: hidden; }
 .hero::before { content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #ffb65b; left: 4vw; top: 90px; }
 .hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 40px; }
 .hero-copy { padding-bottom: 140px; }
