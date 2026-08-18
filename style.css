@@ -596,7 +596,7 @@ body.no-scroll { overflow: hidden; }
   .button { min-height: 47px; padding: 13px 21px; }
   .button-small { min-height: 42px; padding: 9px 17px; font-size: .84rem; }
 
-  .hero { min-height: 700px; padding: 86px 0 105px; }
+  .hero { min-height: 700px; padding: 86px 0 105px; margin-top: 60px; }
   .hero-grid { grid-template-columns: 1fr .92fr; gap: 30px; }
   .hero-copy { padding-bottom: 105px; }
   .hero-text { max-width: 540px; font-size: 1.02rem; }
@@ -734,7 +734,7 @@ body.no-scroll { overflow: hidden; }
   }
   .nav-scrim.open { opacity: 1; visibility: visible; pointer-events: auto; }
 
-  .hero { min-height: auto; padding: 76px 0 135px; }
+  .hero { min-height: auto; padding: 76px 0 135px; margin-top: 55px; }
   .hero-grid, .feature-grid, .process-grid, .faq-grid { grid-template-columns: 1fr; }
   .hero-copy { max-width: 760px; padding-bottom: 0; }
   .hero-text { max-width: 690px; font-size: 1rem; }
@@ -842,7 +842,7 @@ body.no-scroll { overflow: hidden; }
   .hero-actions { gap: 10px; margin-top: 24px; }
   .micro-copy { font-size: .78rem; }
 
-  .hero { padding: 62px 0 135px; }
+  .hero { padding: 76px 0 135px; margin-top: 52px; }
   .hero-grid { gap: 8px; }
   .hero-text { font-size: .96rem; }
   .hero-visual { min-height: 430px; }
@@ -1059,7 +1059,7 @@ body.no-scroll { overflow: hidden; }
   .site-nav { top: 0; right: 0; left: auto; width: min(90vw, 335px); padding: 82px 18px 24px; }
   .site-nav a { padding: 15px 0; font-size: .96rem; }
 
-  .hero { padding: 48px 0 62px; }
+  .hero { padding: 75px 0 85px; margin-top: 50px; }
   .hero::before { display: none;}
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .button { width: 100%; }
@@ -1441,7 +1441,8 @@ main section[id], footer[id], .anchor-offset { scroll-margin-top: calc(var(--hea
 .page-main { min-height: calc(100vh - var(--header-height)); }
 .page-hero {
   position: relative;
-  padding: 96px 0 72px;
+  padding: 72px 0;
+  margin-top: 63px;
   background: var(--purple);
   color: #fff;
   overflow: hidden;
@@ -1526,7 +1527,7 @@ main section[id], footer[id], .anchor-offset { scroll-margin-top: calc(var(--hea
   box-shadow: 0 18px 42px rgba(8, 7, 47, .24);
 }
 @media (max-width: 767px) {
-  .page-hero { padding: 76px 0 56px; }
+  .page-hero { padding: 72px 0; margin-top: 52px; }
   .legal-section { padding: 44px 0 66px; }
   .legal-card,
   .thank-you-card { padding: 30px 22px; border-radius: 24px; }
@@ -1536,7 +1537,7 @@ main section[id], footer[id], .anchor-offset { scroll-margin-top: calc(var(--hea
   .page-actions .button { width: 100%; }
 }
 @media (max-width: 479px) {
-  .page-hero { padding: 58px 0 46px; }
+  .page-hero { padding: 72px 0; margin-top: 45px; }
   .page-hero p { font-size: .95rem; }
   .legal-card,
   .thank-you-card { padding: 26px 18px; border-radius: 20px; }
