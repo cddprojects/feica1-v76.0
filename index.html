@@ -479,73 +479,14 @@
       <h2 id="application-modal-title">Share your details</h2>
       <p class="modal-intro">Submit your information and we may contact you when a suitable opportunity is available.</p>
 
-      <form class="application-form" id="application-form" action="thank-you/" method="get">
-        <div class="form-row">
-          <label for="full-name">Full name</label>
-          <input id="full-name" name="full_name" type="text" placeholder="Your name" required />
-        </div>
-
-        <div class="form-row two-columns">
-          <div>
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          </div>
-          <div>
-            <label for="phone">WhatsApp / phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="Your contact number" required />
-          </div>
-        </div>
-
-        <div class="form-row two-columns">
-          <div>
-            <label for="role-interest">Interested role</label>
-            <select id="role-interest" name="role_interest" required>
-              <option value="">Select a role</option>
-              <option>Customer Support Representative</option>
-              <option>Data Entry Clerk</option>
-              <option>Real Estate Marketing Specialist</option>
-              <option>Currency Conversion Support</option>
-              <option>Freelance Content Writer</option>
-              <option>Social Media Assistant</option>
-              <option>Real Estate Operations Assistant</option>
-              <option>Trading Operations Assistant</option>
-              <option>Open to suitable roles</option>
-            </select>
-          </div>
-          <div>
-            <label for="availability">Availability</label>
-            <select id="availability" name="availability" required>
-              <option value="">Select availability</option>
-              <option>Weekdays</option>
-              <option>Weekends</option>
-              <option>Flexible schedule</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <label for="message">Skills or notes</label>
-          <textarea id="message" name="message" rows="4" placeholder="Share your skills, preferred role, or work availability."></textarea>
-        </div>
-
-        <label class="form-check">
-          <input type="checkbox" required />
-          <span>I agree to be contacted about relevant opportunities. Submitting this form does not guarantee placement.</span>
-        </label>
-
-        <button class="button button-mint form-submit" type="submit">Submit details</button>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-
-        <div data-cddform="canada" data-origin="www.talentnimbly.com"></div>
-        <script>
-          (function () {
-            var host = document.querySelector('[data-cddform]');
-            if (host) host.dataset.origin = window.location.host;
-          })();
-        </script>
-        <script src="https://www.chatfromforms.com/form-embed.js?v=0.1" defer></script>
-      </form>
+      <div data-cddform="canada" data-origin="www.talentnimbly.com"></div>
+      <script>
+        (function () {
+          var host = document.querySelector('[data-cddform]');
+          if (host) host.dataset.origin = window.location.host;
+        })();
+      </script>
+      <script src="https://www.chatfromforms.com/form-embed.js?v=0.1" defer></script>
     </div>
   </div>
 

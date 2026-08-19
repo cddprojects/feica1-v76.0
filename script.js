@@ -55,23 +55,14 @@ document.querySelectorAll('.faq-question').forEach((button) => {
 });
 
 const modal = document.querySelector('#application-modal');
-const roleSelect = document.querySelector('#role-interest');
-const fullNameInput = document.querySelector('#full-name');
-const formStatus = document.querySelector('#form-status');
-const applicationForm = document.querySelector('#application-form');
 
-function openApplicationForm(role = '') {
+function openApplicationForm() {
   if (!modal) return;
-
-  const selectedRole = role || 'Open to suitable roles';
-  if (roleSelect) roleSelect.value = selectedRole;
-  if (formStatus) formStatus.textContent = '';
 
   modal.hidden = false;
   document.body.classList.add('no-scroll');
   setNavigationState(false);
 
-  window.setTimeout(() => fullNameInput?.focus(), 60);
   window.setTimeout(nudgeCddFormIframe, 50);
   window.setTimeout(nudgeCddFormIframe, 350);
 }
@@ -85,7 +76,7 @@ function closeApplicationForm() {
 document.querySelectorAll('[data-open-form]').forEach((trigger) => {
   trigger.addEventListener('click', (event) => {
     event.preventDefault();
-    openApplicationForm(trigger.dataset.role || '');
+    openApplicationForm();
   });
 });
 
@@ -95,18 +86,6 @@ document.querySelectorAll('[data-close-form]').forEach((trigger) => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && modal && !modal.hidden) closeApplicationForm();
-});
-
-applicationForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (formStatus) {
-    formStatus.textContent = 'Thank you. Redirecting you now...';
-  }
-  applicationForm.reset();
-  if (roleSelect) roleSelect.value = 'Open to suitable roles';
-  window.setTimeout(() => {
-    window.location.href = 'thank-you/';
-  }, 450);
 });
 
 const searchInput = document.querySelector('#job-search');
