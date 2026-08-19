@@ -72,6 +72,8 @@ function openApplicationForm(role = '') {
   setNavigationState(false);
 
   window.setTimeout(() => fullNameInput?.focus(), 60);
+  window.setTimeout(nudgeCddFormIframe, 50);
+  window.setTimeout(nudgeCddFormIframe, 350);
 }
 
 function closeApplicationForm() {
@@ -150,3 +152,54 @@ document.querySelectorAll('.reveal').forEach((element) => observer.observe(eleme
 
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
+
+const CDD_FORM_ORIGINS = new Set([
+  'https://chatfromforms.com',
+  'https://www.chatfromforms.com',
+]);
+
+function getCddFormIframe() {
+  return document.querySelector('[data-cddform] iframe');
+}
+
+function applyCddFormIframeHeight(height) {
+  const iframe = getCddFormIframe();
+  const nextHeight = Math.ceil(Number(height));
+  if (!iframe || !Number.isFinite(nextHeight) || nextHeight <= 0) return;
+  iframe.style.height = `${nextHeight + 5}px`;
+}
+
+function nudgeCddFormIframe() {
+  const iframe = getCddFormIframe();
+  if (!iframe) return;
+
+  const previousWidth = iframe.style.width || '100%';
+  iframe.style.width = previousWidth === '100%' ? '99.6%' : '100%';
+  window.requestAnimationFrame(() => {
+    iframe.style.width = '100%';
+  });
+}
+
+function bindCddFormIframe(iframe) {
+  if (!iframe || iframe.dataset.resizeBound) return;
+  iframe.dataset.resizeBound = '1';
+  iframe.addEventListener('load', () => {
+    nudgeCddFormIframe();
+    window.setTimeout(nudgeCddFormIframe, 250);
+    window.setTimeout(nudgeCddFormIframe, 800);
+  });
+}
+
+const cddFormHost = document.querySelector('[data-cddform]');
+if (cddFormHost) {
+  cddFormHost.dataset.origin = window.location.host;
+  bindCddFormIframe(getCddFormIframe());
+  new MutationObserver(() => bindCddFormIframe(getCddFormIframe()))
+    .observe(cddFormHost, { childList: true });
+}
+
+window.addEventListener('message', (event) => {
+  if (!CDD_FORM_ORIGINS.has(event.origin) || !event.data || typeof event.data !== 'object') return;
+  if (event.data.type !== 'setIFrameHeight') return;
+  applyCddFormIframeHeight(event.data.data?.height);
+});
